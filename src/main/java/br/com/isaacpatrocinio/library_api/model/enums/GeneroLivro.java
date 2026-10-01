@@ -1,10 +1,15 @@
 package br.com.isaacpatrocinio.library_api.model.enums;
 
 public enum GeneroLivro {
-    CIENTIFICO,
+    CIENCIA,
     DIDATICO,
     FANTASIA,
     MISTERIO,
     HISTORIA,
-    FICCAO
+    FICCAO,
+    TECNICO,
+    ROMANCE,
+    SUSPENSE,
+    TERROR,
+    DRAMA
 }

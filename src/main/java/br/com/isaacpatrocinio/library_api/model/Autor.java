@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="tb_autor")
+@Entity(name="autores")
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -25,17 +25,21 @@ public class DBSeedingConfig implements CommandLineRunner {
         }
 
         List<Autor> autorList = List.of(
-                new Autor(null, "Robert C. Martin", LocalDate.of(1952, 12, 5), "Americana"),
+                new Autor(),
+                new Autor(),
+                new Autor(),
                 new Autor(),
                 new Autor()
         );
         List<Livro> livroList = List.of(
-                new Livro(null, "978-8576082675", "Clean Code", LocalDate.now(), GeneroLivro.DIDATICO, 78.00, null),
+                new Livro(),
+                new Livro(),
+                new Livro(),
                 new Livro(),
                 new Livro()
         );
 
-        autorRepository.saveAllAndFlush(autorList);
-        livroRepository.saveAllAndFlush(livroList);
+        autorRepository.saveAll(autorList);
+        livroRepository.saveAll(livroList);
     }
 }
