@@ -1,6 +1,8 @@
 spring:
   application:
     name: library-api
+  profiles:
+    active: dev
   datasource:
     driver-class-name: org.postgresql.Driver
     username: ${DB_USERNAME}
