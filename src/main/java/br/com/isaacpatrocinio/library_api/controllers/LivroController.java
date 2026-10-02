@@ -2,6 +2,7 @@ package br.com.isaacpatrocinio.library_api.controllers;
 
 import br.com.isaacpatrocinio.library_api.model.Livro;
 import br.com.isaacpatrocinio.library_api.services.LivroService;
+import br.com.isaacpatrocinio.library_api.services.exceptions.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

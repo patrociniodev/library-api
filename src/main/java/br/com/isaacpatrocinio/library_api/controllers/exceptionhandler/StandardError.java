@@ -3,29 +3,28 @@ package br.com.isaacpatrocinio.library_api.controllers.exceptionhandler;
 import org.springframework.http.HttpStatus;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 public class StandardError {
 
-    private Instant timestamp;
+    private ZonedDateTime timestamp;
     private HttpStatus status;
     private String error;
-    private String message;
 
     public StandardError() {
     }
 
-    public StandardError(Instant timestamp, HttpStatus status, String error, String message) {
+    public StandardError(ZonedDateTime timestamp, HttpStatus status, String error) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
-        this.message = message;
     }
 
-    public Instant getTimestamp() {
+    public ZonedDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(ZonedDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -43,13 +42,5 @@ public class StandardError {
 
     public void setError(String error) {
         this.error = error;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }
