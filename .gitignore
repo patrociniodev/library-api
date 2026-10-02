@@ -32,7 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-comandos-docker.txt
+docker.txt
+sql.txt
 .env
 .env.*
 *.log

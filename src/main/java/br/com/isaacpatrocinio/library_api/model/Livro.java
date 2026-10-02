@@ -2,16 +2,15 @@ package br.com.isaacpatrocinio.library_api.model;
 
 import br.com.isaacpatrocinio.library_api.model.enums.GeneroLivro;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
 @Setter
+@EqualsAndHashCode
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "livros")
@@ -24,5 +23,8 @@ public class Livro {
     private LocalDate dataPublicacao;
     private GeneroLivro generoLivro;
     private Double preco;
-    private UUID idAutor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
 }
