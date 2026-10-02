@@ -34,12 +34,12 @@ public class LivroController {
     }
 
     @PostMapping()
-    public ResponseEntity<Livro> salvarNovoLivro(@RequestBody Livro livroJson, HttpServletRequest request) {
+    public ResponseEntity<Livro> salvarNovoLivro(@RequestBody Livro livroJson) {
         var livroSalvo = livroService.salvarNovoLivro(livroJson);
         URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path(request.getContextPath())
-                .buildAndExpand(livroSalvo)
+                .fromCurrentRequestUri()
+                .path("/{id}")
+                .buildAndExpand(livroSalvo.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(livroSalvo);
     }

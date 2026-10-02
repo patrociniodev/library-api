@@ -34,12 +34,12 @@ public class AutorController {
     }
 
     @PostMapping
-    public ResponseEntity<Autor> salvarNovoAutor(@RequestBody Autor autorJson, HttpServletRequest request) {
+    public ResponseEntity<Autor> salvarNovoAutor(@RequestBody Autor autorJson) {
         var autorSalvo = autorService.salvarNovoAutor(autorJson);
         URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path(request.getContextPath())
-                .buildAndExpand(autorSalvo)
+                .fromCurrentRequestUri()
+                .path("/{id}")
+                .buildAndExpand(autorSalvo.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(autorSalvo);
     }
