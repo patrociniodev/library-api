@@ -4,10 +4,8 @@ import br.com.isaacpatrocinio.library_api.model.Livro;
 import br.com.isaacpatrocinio.library_api.repositories.LivroRepository;
 import br.com.isaacpatrocinio.library_api.services.exceptions.LibraryException;
 import br.com.isaacpatrocinio.library_api.services.exceptions.NotFoundException;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 

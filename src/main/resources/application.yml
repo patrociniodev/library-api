@@ -13,6 +13,7 @@ spring:
       show-sql: true
       ddl-auto: update
     generate-ddl: true
+    show-sql: true
     properties:
       hibernate.hibernate.use_sql_comments: true
       hibernate:
