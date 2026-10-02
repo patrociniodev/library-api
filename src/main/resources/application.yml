@@ -9,8 +9,8 @@ spring:
     password: ${DB_PASSWORD}
     url: ${DB_URL}
   jpa:
-    show-sql: true
     hibernate:
+      show-sql: true
       ddl-auto: update
     generate-ddl: true
     properties:
