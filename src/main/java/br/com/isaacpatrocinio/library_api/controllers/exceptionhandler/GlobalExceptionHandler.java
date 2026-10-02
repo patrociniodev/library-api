@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
         errorObj.setTimestamp(Instant.now());
         errorObj.setStatus(notFoundStatus);
         errorObj.setError(e.getMessage());
-        errorObj.setMessage("Resource was not found.");
+        errorObj.setMessage("Recurso não encontrado.");
 
         return ResponseEntity.status(notFoundStatus).body(errorObj);
     }

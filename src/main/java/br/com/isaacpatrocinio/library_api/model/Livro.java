@@ -24,7 +24,7 @@ public class Livro {
     private GeneroLivro generoLivro;
     private Double preco;
 
-    @ManyToOne
+    @ManyToOne(/*cascade = CascadeType.ALL*/)
     @JoinColumn(name = "id_autor")
     private Autor autor;
 }

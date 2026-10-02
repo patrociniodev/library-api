@@ -2,7 +2,6 @@ package br.com.isaacpatrocinio.library_api.controllers;
 
 import br.com.isaacpatrocinio.library_api.model.Autor;
 import br.com.isaacpatrocinio.library_api.services.AutorService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -42,5 +41,17 @@ public class AutorController {
                 .buildAndExpand(autorSalvo.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(autorSalvo);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Autor> atualizarAutor(@PathVariable UUID id, @RequestBody Autor autorJson) {
+        autorService.atualizarAutor(id, autorJson);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Autor> deletar(@PathVariable UUID id) {
+        autorService.deletarAutor(id);
+        return ResponseEntity.noContent().build();
     }
 }

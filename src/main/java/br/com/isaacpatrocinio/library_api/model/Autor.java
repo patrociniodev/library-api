@@ -13,7 +13,7 @@ import java.util.UUID;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="autores")
+@Entity(name = "autores")
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -22,8 +22,8 @@ public class Autor {
     private LocalDate dataNascimento;
     private String nacionalidade;
 
-//  @OneToMany
-    @Transient
+    @OneToMany(/*cascade = CascadeType.ALL*/)
+//  @Transient
     private List<Livro> livros;
 }
 

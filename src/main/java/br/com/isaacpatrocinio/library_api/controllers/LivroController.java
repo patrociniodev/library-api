@@ -2,7 +2,6 @@ package br.com.isaacpatrocinio.library_api.controllers;
 
 import br.com.isaacpatrocinio.library_api.model.Livro;
 import br.com.isaacpatrocinio.library_api.services.LivroService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -36,11 +35,19 @@ public class LivroController {
     @PostMapping()
     public ResponseEntity<Livro> salvarNovoLivro(@RequestBody Livro livroJson) {
         var livroSalvo = livroService.salvarNovoLivro(livroJson);
-        URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequestUri()
-                .path("/{id}")
-                .buildAndExpand(livroSalvo.getId())
-                .toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(livroSalvo.getId()).toUri();
         return ResponseEntity.created(uri).body(livroSalvo);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Livro> atualizarLivro(@PathVariable UUID id, @RequestBody Livro livroJson) {
+        livroService.atualizarLivro(id, livroJson);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Livro> deletar(@PathVariable UUID id) {
+        livroService.deletarLivro(id);
+        return ResponseEntity.noContent().build();
     }
 }
