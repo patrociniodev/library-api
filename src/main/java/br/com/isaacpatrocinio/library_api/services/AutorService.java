@@ -2,6 +2,7 @@ package br.com.isaacpatrocinio.library_api.services;
 
 import br.com.isaacpatrocinio.library_api.model.Autor;
 import br.com.isaacpatrocinio.library_api.repositories.AutorRepository;
+import br.com.isaacpatrocinio.library_api.services.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Service
 public class AutorService {
 
-    private AutorRepository autorRepository;
+    private final AutorRepository autorRepository;
 
     public AutorService(AutorRepository autorRepository) {
         this.autorRepository = autorRepository;
@@ -22,8 +23,16 @@ public class AutorService {
 
     public Autor buscarPorId(UUID id) {
         var possivelAutor = autorRepository.findById(id);
-        return possivelAutor.orElseThrow(() -> {
-            throw new RuntimeException("Id não encontrado");
-        });
+        return possivelAutor.orElseThrow(() ->
+                new NotFoundException("Id não encontrado")
+        );
+    }
+
+    public Autor salvarNovoAutor(Autor autor) {
+        if (autor == null) {
+            throw new NotFoundException("Ocorreu um erro ao processar a solicitação.");
+        }
+
+        return autorRepository.save(autor);
     }
 }

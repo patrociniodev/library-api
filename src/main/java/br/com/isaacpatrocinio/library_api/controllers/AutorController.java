@@ -2,12 +2,12 @@ package br.com.isaacpatrocinio.library_api.controllers;
 
 import br.com.isaacpatrocinio.library_api.model.Autor;
 import br.com.isaacpatrocinio.library_api.services.AutorService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ import java.util.UUID;
 @RequestMapping("/autores")
 public class AutorController {
 
-    private AutorService autorService;
+    private final AutorService autorService;
 
     public AutorController(AutorService autorService) {
         this.autorService = autorService;
@@ -31,5 +31,16 @@ public class AutorController {
     public ResponseEntity<Autor> buscarPorId(@PathVariable UUID id) {
         var autor = autorService.buscarPorId(id);
         return ResponseEntity.status(200).body(autor);
+    }
+
+    @PostMapping
+    public ResponseEntity<Autor> salvarNovoAutor(@RequestBody Autor autorJson, HttpServletRequest request) {
+        var autorSalvo = autorService.salvarNovoAutor(autorJson);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path(request.getContextPath())
+                .buildAndExpand(autorSalvo)
+                .toUri();
+        return ResponseEntity.created(uri).body(autorSalvo);
     }
 }
