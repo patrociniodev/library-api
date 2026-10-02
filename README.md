@@ -34,3 +34,25 @@
   }
 ]
 ```
+
+### Salvar novo livro
+* **URL: `/livros`**
+* **Método: `POST`**
+* **Resposta: (201 CREATED)**
+
+```json
+{
+
+}
+```
+
+### Salvar novo autor
+* **URL: `/autores`**
+* **Método: `POST`**
+* **Resposta: (201 CREATED)**
+
+```json 
+{
+
+}
+```
