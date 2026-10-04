@@ -1,38 +1,14 @@
 # Projeto Spring Library
-## O projeto consiste em um sistema backend de biblioteca, que gerencia livros e autores e expõe recursos através de uma API RESTful
+## Consiste em um sistema backend de biblioteca, que gerencia livros e autores e expõe recursos através de uma API RESTful
 ## Tecnologias utilizadas:
-### * Java 21
-### * Spring Boot 4
-### * PostgreSQL como banco de dados relacional
+### * Java
+### * Spring Boot
+### * Docker
+### * PostgreSQL
 
 ---
 
 ## Endpoints
-### Obter registros de livros
-* **URL:** `/livros`
-* **Método:** `GET`
-* **Resposta: (200 OK)**
-
-```json
-[
-  {
-    
-  }
-]
-```
-
-### Obter livro informando o id
-Necessário para enviar a requisição:\
-*Enviar o id como parâmetro de url
-* **URL:** `/livros/{id}`
-* **Método:** `GET`
-* **Resposta: (200 OK)**
-
-```json
-{
-    
-}
-```
 
 ### Salvar novo livro
 OBS: O id será gerado automaticamente no servidor e atribuído ao novo registro
@@ -49,6 +25,35 @@ Necessário para enviar a requisição:\
 }
 ```
 
+---
+### Obter registros de livros
+* **URL:** `/livros`
+* **Método:** `GET`
+* **Resposta: (200 OK)**
+
+```json
+[
+  {
+    
+  }
+]
+```
+
+---
+### Obter livro informando o id
+Necessário para enviar a requisição:\
+*Enviar o id como parâmetro de url
+* **URL:** `/livros/{id}`
+* **Método:** `GET`
+* **Resposta: (200 OK)**
+
+```json
+{
+    
+}
+```
+
+---
 ### Atualizar livro
 Necessário para enviar a requisição:\
 *Enviar o id como parâmetro de url\
@@ -62,6 +67,7 @@ Necessário para enviar a requisição:\
 }
 ```
 
+---
 ### Deletar livro
 Necessário para enviar a requisição:\
 *Enviar o id como parâmetro de url
@@ -69,32 +75,7 @@ Necessário para enviar a requisição:\
 * **Método: `DELETE`**
 * **Resposta: (204 NO CONTENT)**
 
-### Obter registros de autores
-* **URL: `/autores`**
-* **Método: `GET`**
-* **Resposta: (200 OK)**
-
-```json
-[
-  {
-    
-  }
-]
-```
-
-### Obter autor informando o id
-Necessário para enviar a requisição:\
-*Enviar o id como parâmetro de url
-* **URL:** `/autores/{id}`
-* **Método:** `GET`
-* **Resposta: (200 OK)**
-
-```json
-{
-    
-}
-```
-
+---
 ### Salvar novo autor
 OBS: O id será gerado automaticamente no servidor e atribuído ao novo registro
 
@@ -110,6 +91,35 @@ Necessário para enviar a requisição:\
 }
 ```
 
+---
+### Obter registros de autores
+* **URL: `/autores`**
+* **Método: `GET`**
+* **Resposta: (200 OK)**
+
+```json
+[
+  {
+    
+  }
+]
+```
+
+---
+### Obter autor informando o id
+Necessário para enviar a requisição:\
+*Enviar o id como parâmetro de url
+* **URL:** `/autores/{id}`
+* **Método:** `GET`
+* **Resposta: (200 OK)**
+
+```json
+{
+    
+}
+```
+
+---
 ### Atualizar autor
 Necessário para enviar a requisição:\
 *Enviar o id como parâmetro de url\
@@ -123,9 +133,11 @@ Necessário para enviar a requisição:\
 }
 ```
 
+---
 ### Deletar autor
 Necessário para enviar a requisição:\
 *Enviar o id como parâmetro de url
 * **URL: `/autores/{id}`**
 * **Método: `DELETE`**
 * **Resposta: (204 NO CONTENT)**
+---
