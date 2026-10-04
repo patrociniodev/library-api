@@ -37,10 +37,6 @@ public class LivroService {
     }
 
     public void atualizarLivro(UUID uuid, Livro livroJson) {
-        if (livroJson == null) {
-            throw new LibraryException("Ocorreu um erro ao processar a solicitação.");
-        }
-
         var livroOptional = livroRepository.findById(uuid);
         if (livroOptional.isEmpty()){
             throw new NotFoundException("Livro não encontrado.");

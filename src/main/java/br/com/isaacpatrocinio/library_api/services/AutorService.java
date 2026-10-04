@@ -30,17 +30,10 @@ public class AutorService {
     }
 
     public Autor salvarNovoAutor(Autor autor) {
-        if (autor == null) {
-            throw new LibraryException("Ocorreu um erro ao processar a solicitação.");
-        }
-
         return autorRepository.save(autor);
     }
 
     public void atualizarAutor(UUID uuid, Autor autorJson) {
-        if (autorJson == null) {
-            throw new LibraryException("Ocorreu um erro ao processar a solicitação.");
-        }
         var autorOptional = autorRepository.findById(uuid);
         if (autorOptional.isEmpty()) {
             throw new NotFoundException("Id não encontrado.");
